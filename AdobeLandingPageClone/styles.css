@@ -1,0 +1,85 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+
+nav ul{
+    font-size: small;
+    list-style-type: none;
+    display: flex;
+    
+    align-items: center;
+    justify-content: baseline;
+}
+
+li{
+    padding: 0px 35px 10px 0;
+}
+
+.logo{
+    height: 25px;
+}
+
+.rightSideNavBar{
+    height: 25px;
+    padding-left: 35vw;
+}
+
+
+
+.FeaturedImage{
+    width: 100%;
+    height: 600px;
+    padding: 0;
+    padding-bottom: 3vh;
+}
+
+.layeredText{
+    position: absolute;
+    top: 45vh;
+    left: 8vw;
+    z-index: 1;
+    color: white;
+    font-weight: 200;
+}
+
+.photoshopButton{
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    background-color: blue;
+    padding: 20px;
+    font-size: large;
+    border-radius: 25px;
+    margin-top: 15px;
+    margin-right: 15px;
+}
+
+#Firefly{
+    text-decoration: none;
+    color: white;
+}
+
+.tiles{
+    padding-left: 2vw;
+    height: 440px;
+    width: 30vw;
+    display: inline;
+}
+
+.tiles img{
+    width: inherit;
+    height: inherit;
+}
+
+.tiles p{
+    display: inline;
+    position: absolute;
+    word-wrap: normal;
+    width: 25vw;
+    padding-left: 3vw;
+    color: black;
+    
+}
+
+
