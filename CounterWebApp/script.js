@@ -1,16 +1,14 @@
-let currentValue = parseInt(document.getElementById("counter").innerText);
-let counterElement = document.getElementById("counter").innerText;
+let counter = document.getElementById("counter");
 
 
 function increment(){
-    counterElement = currentValue + 1;
-    console.log(currentValue);
+    counter.innerHTML = parseInt(counter.innerHTML) + 1;
 }
 
 function decrement(){
-    counterElement = currentValue - 1;
+    counter.innerHTML = parseInt(counter.innerHTML) - 1;
 }
 
-function clear(){
-    counterElement = 0;
+function clearCounter(){
+    counter.innerHTML = 0;
 }

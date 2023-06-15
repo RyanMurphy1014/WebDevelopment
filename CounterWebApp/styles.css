@@ -1,3 +1,8 @@
+body {
+  background-color: darkslategrey;
+}
+
+
 div {
   height: 97vh;
   display: flex;
