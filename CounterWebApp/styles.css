@@ -1,27 +1,27 @@
 body {
   background-color: darkslategrey;
+  margin: 0;
+  padding: 0;
 }
 
 
 div {
-  height: 97vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  /* Set flex-direction to column */
   align-items: center;
   justify-content: center;
 }
 
 button {
   margin-top: 10px;
-  /* Add some spacing between the buttons */
   height: 50px;
   width: 75px;
   border-radius: 10px;
-  box-shadow: 20px;
+  background-color: gray;
 }
 
 h1 {
+  font-size: 90px;
   margin-bottom: 10px;
-  /* Add some spacing between the header and buttons */
 }
