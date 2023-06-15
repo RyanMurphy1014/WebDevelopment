@@ -1,0 +1,42 @@
+body {
+    background-color: slategray;
+    margin: 0;
+    padding: 0;
+}
+
+span {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contentPane {
+    background-color: gray;
+    height: 400px;
+    width: 500px;
+}
+
+#leftArrow {
+    transform: scaleX(-1);
+}
+
+#profilePicture {
+    height: 100px;
+    width: 100px;
+    padding: 25px;
+}
+
+#rating {
+    height: 100px;
+}
+
+p {
+    padding: 10px;
+}
+
+button {
+    margin: 50px;
+    border-radius: 10px;
+    background-color: lightgray;
+}
