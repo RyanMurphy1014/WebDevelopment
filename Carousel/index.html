@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Review Carousel</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <span>
-      <button onclick="changePerson(-1)" id="leftArrow">
-        <img width="50" height="50" src="images/right-arrow.png" alt="" />
-      </button>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Review Carousel</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <span>
+            <button onclick="changePerson(-1)" id="leftArrow">
+                <img
+                    width="50"
+                    height="50"
+                    src="images/right-arrow.png"
+                    alt=""
+                />
+            </button>
 
-      <div id="contentPane">
-        <img id="profilePicture" src="" alt="Profile Picture" />
-        <img id="rating" src="" alt="Star Rating" />
-        <p>Insert review</p>
-      </div>
+            <div id="contentPane">
+                <img id="profilePicture" src="" alt="Profile Picture" />
+                <img id="rating" src="" alt="Star Rating" />
+                <p>Insert review</p>
+            </div>
 
-      <button onclick="changePerson(1)" id="rightArrow">
-        <img width="50" height="50" src="images/right-arrow.png" alt="" />
-      </button>
-    </span>
-    <script src="script.js"></script>
-  </body>
+            <button onclick="changePerson(1)" id="rightArrow">
+                <img
+                    width="50"
+                    height="50"
+                    src="images/right-arrow.png"
+                    alt=""
+                />
+            </button>
+        </span>
+        <script src="script.js"></script>
+    </body>
 </html>
