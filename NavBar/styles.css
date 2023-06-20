@@ -34,7 +34,10 @@ body {
     opacity: 0;
 }
 
+.dropDownContent.active {
+    opacity: 1;
 
+}
 
 .dropDownButton {
     background: none;
