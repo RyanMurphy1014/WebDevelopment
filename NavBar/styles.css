@@ -1,0 +1,52 @@
+:root {
+    --text: #030501;
+    --background: #f4fce4;
+    --primary-button: #1c5f0c;
+    --secondary-button: #f1fdf5;
+    --accent: #0c5f25;
+}
+
+body {
+    margin: 0;
+    background-color: var(--background);
+}
+
+.navBar {
+    display: flex;
+    align-items: baseline;
+    padding: 0.5rem;
+    gap: 1rem;
+    background-color: var(--primary-button);
+
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropDownContent {
+    position: absolute;
+    left: 0;
+    background-color: var(--accent);
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+    opacity: 0;
+}
+
+
+
+.dropDownButton {
+    background: none;
+    border: none;
+    text-decoration: none;
+    color: var(--text);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0;
+}
+
+.dropDownButton:hover {
+    color: var(--secondary-button);
+}
