@@ -28,7 +28,7 @@ body{
     border-radius: 15px;
 
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: max-content;
+    grid-template-rows: 52px;
     
     grid-template-areas: 
         "sidebar header"
@@ -57,6 +57,22 @@ aside{
     padding: 20px;
     grid-area: sidebar;
 }
+
+h1,h2{
+    display: inline;
+}
+
+.menuBar > svg{
+    padding-left: 60%;
+}
+
+
+
+
+.tasks > svg{
+    height: 1.5rem;
+}
+
 
 main{
     background-color: var(--secondary-button);
