@@ -26,12 +26,17 @@ body {
 
 .dropDownContent {
     position: absolute;
-   
     background-color: var(--accent);
     padding: 0.75rem;
     border-radius: 0.25rem;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
     opacity: 0;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 15px;
+
+
 }
 
 
@@ -49,4 +54,10 @@ body {
 
 .dropDownButton:hover {
     color: var(--secondary-button);
+}
+
+.dropDownContent > a{
+    padding: 5px;
+    text-decoration: none;
+    color: var(--text);
 }
