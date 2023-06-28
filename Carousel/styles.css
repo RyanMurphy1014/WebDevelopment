@@ -13,7 +13,7 @@ span {
 
 #contentPane {
     background-color: gray;
-    height: 400px;
+    height: auto;
     width: 500px;
     border: solid 3px;
     border-color: black;
