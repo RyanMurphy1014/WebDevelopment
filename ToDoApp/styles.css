@@ -4,7 +4,11 @@
     --primary-button: #cc6b80;
     --secondary-button: #fefcfb;
     --lighter-secondary:#fefcfbb6;
-    --accent: #9c5235;
+    --accent: #9e4777b2;
+}
+
+*{
+    font-family: 'Tilt Neon', cursive;
 }
 
 body{
@@ -66,18 +70,47 @@ h1,h2{
     padding-left: 60%;
 }
 
-
+.menuBar{
+    padding-bottom: 40%;
+}
 
 
 .tasks > svg{
     height: 1.5rem;
 }
 
+.tasks{
+    padding-top: 10px;
+}
+
+.lists{
+    padding-top: 35%;
+}
+
+.listThumbnail{
+    background-color: var(--accent);
+    height: 250px;
+    width: 250px;
+    margin: 25px;
+}
+
+.listThumbnail > p{
+    display: flex;    
+    justify-content: center;
+    padding-top: 15%;
+    font-weight: 400;
+}
+
+
 
 main{
     background-color: var(--secondary-button);
     padding: 20px;
-    
     grid-area: content;
+
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 

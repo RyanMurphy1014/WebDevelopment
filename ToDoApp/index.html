@@ -16,7 +16,7 @@
       <header>Notes</header>
 
       <aside>
-        <span class="menuBar">
+        <div class="menuBar">
           <h1>Menu</h1>
 
           <svg width="43" height="43" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -24,9 +24,11 @@
             <path d="M9 21a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1"></path>
             <path d="m3 12 2-2 7-7 7 7 2 2"></path>
           </svg>
-        </span>
+        </div>
 
-        <div class="tasks">
+        <h1>Tasks</h1>
+
+        <div class="tasks" data-UpcomingEvents>
           <svg width="43" height="43" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="m13 5 7 7-7 7"></path>
             <path d="m5 5 7 7-7 7"></path>
@@ -34,7 +36,7 @@
           <h2>Upcoming</h2>
         </div>
 
-        <div class="tasks">
+        <div class="tasks" data-TodaysEvents>
           <svg width="43" height="43" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M4 18h16M4 6h16H4Zm0 4h16H4Zm0 4h16H4Z"></path>
           </svg>
@@ -42,14 +44,20 @@
           <h2>Today</h2>
         </div>
 
-        <div class="Lists">
+        <div class="lists">
+          <h1 class="listHeader">Lists</h1>
           <ul>
             <li>Default List</li>
+            <li>+ Add List</li>
           </ul>
         </div>
       </aside>
 
-      <main></main>
+      <main>
+        <div class="listThumbnail" data-listName="Default List">
+          <p>Default List</p>
+        </div>
+      </main>
     </div>
   </body>
 </html>
