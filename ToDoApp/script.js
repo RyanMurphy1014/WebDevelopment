@@ -65,14 +65,20 @@ function clearMainContentPane() {
 function displayActiveList() {
     console.log(activeList);
     document.querySelector("header").innerText = activeList.dataset.listname;
-    listofLists.forEach((list) => {
-        if (list.listName === activeList.dataset.listname) {
-            list.listItems.forEach((element) => {
-                contentPaneText.innerHTML +=
-                    "<li> <input type = 'checkbox'>" + element + "</li>";
-            });
+
+    for (let i = 0; i < listofLists.length; i++) {
+        for (let j = 0; j < listofLists[i].listItems.length; j++) {
+            let id = "item" + j;
+            contentPaneText.innerHTML +=
+                "<li> <input type = 'checkbox' id = '" +
+                id +
+                "'> <label for=" +
+                id +
+                ">" +
+                listofLists[i].listItems[j] +
+                "</label></li>";
         }
-    });
+    }
 }
 
 function displayHome() {
