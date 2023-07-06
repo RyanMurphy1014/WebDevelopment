@@ -61,6 +61,7 @@ aside {
     background-color: var(--secondary-button);
     padding: 20px;
     grid-area: sidebar;
+
 }
 
 h1,
@@ -91,8 +92,8 @@ h2 {
 
 .listThumbnail {
     background-color: var(--accent);
-    height: 250px;
-    width: 250px;
+    height: 200px;
+    width: 200px;
     margin: 25px;
 }
 
