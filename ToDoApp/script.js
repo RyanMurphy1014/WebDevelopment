@@ -68,8 +68,8 @@ function displayActiveList() {
     listofLists.forEach((list) => {
         if (list.listName === activeList.dataset.listname) {
             list.listItems.forEach((element) => {
-                console.log(element);
-                contentPaneText.append(element + " ");
+                contentPaneText.innerHTML +=
+                    "<li> <input type = 'checkbox'>" + element + "</li>";
             });
         }
     });
