@@ -40,6 +40,7 @@ let defaultList = new ToDoAppList();
 defaultList.addListItem("Laundry");
 defaultList.addListItem("Shopping");
 defaultList.listName = "Default List";
+defaultList.isListItemComplete[1] = "T";
 listofLists.push(defaultList);
 
 //Apply Event Listeners
@@ -63,20 +64,22 @@ function clearMainContentPane() {
 }
 
 function displayActiveList() {
-    console.log(activeList);
+    console.log();
     document.querySelector("header").innerText = activeList.dataset.listname;
 
     for (let i = 0; i < listofLists.length; i++) {
-        for (let j = 0; j < listofLists[i].listItems.length; j++) {
-            let id = "item" + j;
-            contentPaneText.innerHTML +=
-                "<li> <input type = 'checkbox' id = '" +
-                id +
-                "'> <label for=" +
-                id +
-                ">" +
-                listofLists[i].listItems[j] +
-                "</label></li>";
+        if (listofLists[i].listName === activeList.dataset.listname) {
+            for (let j = 0; j < listofLists[i].listItems.length; j++) {
+                let id = "item" + j;
+                contentPaneText.innerHTML +=
+                    "<li> <input type = 'checkbox' id = '" +
+                    id +
+                    "'> <label for=" +
+                    id +
+                    ">" +
+                    listofLists[i].listItems[j] +
+                    "</label></li>";
+            }
         }
     }
 }
