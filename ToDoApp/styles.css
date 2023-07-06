@@ -1,17 +1,17 @@
-:root{
+:root {
     --text: #1d0c07;
     --background: #EEC8BD;
     --primary-button: #cc6b80;
     --secondary-button: #fefcfb;
-    --lighter-secondary:#fefcfbb6;
+    --lighter-secondary: #fefcfbb6;
     --accent: #9e4777b2;
 }
 
-*{
+* {
     font-family: 'Tilt Neon', cursive;
 }
 
-body{
+body {
     margin: 0;
     border: 0;
     background-color: var(--background);
@@ -22,8 +22,8 @@ body{
 }
 
 
-.contentContainer{
-    height: 75%;
+.contentContainer {
+    height: 80%;
     width: 65%;
     display: grid;
     padding: 15px;
@@ -32,70 +32,72 @@ body{
     border-radius: 15px;
 
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 52px;
-    
-    grid-template-areas: 
+
+    grid-template-areas:
         "sidebar header"
         "sidebar content";
 
     gap: 15px;
 
+
 }
 
-.contentContainer > *{
+.contentContainer>* {
+    min-height: 0;
     border-radius: 15px;
 }
 
-header{
+header {
     background-color: var(--secondary-button);
     font-family: 'Tilt Neon', cursive;
     grid-area: header;
     font-size: 40px;
     text-align: left;
     padding-left: 25px;
-    
+
 }
 
-aside{
+aside {
     background-color: var(--secondary-button);
     padding: 20px;
     grid-area: sidebar;
 }
 
-h1,h2{
+h1,
+h2 {
     display: inline;
 }
 
-.menuBar > svg{
+.menuBar>svg {
     padding-left: 60%;
 }
 
-.menuBar{
+.menuBar {
     padding-bottom: 40%;
 }
 
 
-.tasks > svg{
+.tasks>svg {
     height: 1.5rem;
 }
 
-.tasks{
+.tasks {
     padding-top: 10px;
 }
 
-.lists{
+.lists {
     padding-top: 35%;
 }
 
-.listThumbnail{
+.listThumbnail {
     background-color: var(--accent);
     height: 250px;
     width: 250px;
     margin: 25px;
 }
 
-.listThumbnail > p{
-    display: flex;    
+.listThumbnail>p {
+    display: flex;
     justify-content: center;
     padding-top: 15%;
     font-weight: 400;
@@ -103,7 +105,7 @@ h1,h2{
 
 
 
-main{
+main {
     background-color: var(--secondary-button);
     padding: 20px;
     grid-area: content;
@@ -113,4 +115,3 @@ main{
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
 }
-
