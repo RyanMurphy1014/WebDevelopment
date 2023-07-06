@@ -1,7 +1,7 @@
 class ToDoAppList {
-    associatedElement;
     listItems = [];
     isListItemComplete = [];
+    listName;
 
     addListItem(item) {
         this.listItems.push(item);
@@ -16,29 +16,36 @@ class ToDoAppList {
         this.listItems.splice(index, 1);
         this.isListItemComplete.splice(index, 1);
     }
+
+    logListItems() {
+        this.listItems.forEach((element) => {
+            console.log(element);
+        });
+    }
 }
 
 //Frequently Used Elements
-let listOfLists = document.querySelectorAll("main > div");
+let listOfListDivs = document.querySelectorAll("main > div");
+let listofLists = [];
+
 const homeButton = document.querySelector("[data-homeButton]");
 const headerText = document.querySelector("header");
 const mainContentPane = document.querySelector("main");
+const contentPaneText = document.querySelector("[data-contentPaneText]");
 
 let activeList = null;
-let activeListName;
 
 //Instantiate Default List
 let defaultList = new ToDoAppList();
 defaultList.addListItem("Laundry");
 defaultList.addListItem("Shopping");
-defaultList.associatedElement = listOfLists[0];
+defaultList.listName = "Default List";
+listofLists.push(defaultList);
 
 //Apply Event Listeners
-listOfLists.forEach((element) => {
+listOfListDivs.forEach((element) => {
     element.addEventListener("click", () => {
         activeList = element;
-        console.log(activeList);
-        activeListName = activeList.dataset.listname;
         clearMainContentPane();
         displayActiveList();
     });
@@ -50,17 +57,25 @@ homeButton.addEventListener("click", () => {
     displayHome();
 });
 
-console.log(listOfLists);
-
 function clearMainContentPane() {
-    listOfLists.forEach((element) => (element.style.visibility = "hidden"));
+    listOfListDivs.forEach((element) => (element.style.visibility = "hidden"));
+    contentPaneText.innerHTML = null;
 }
 
 function displayActiveList() {
-    document.querySelector("header").innerText = activeListName;
+    console.log(activeList);
+    document.querySelector("header").innerText = activeList.dataset.listname;
+    listofLists.forEach((list) => {
+        if (list.listName === activeList.dataset.listname) {
+            list.listItems.forEach((element) => {
+                console.log(element);
+                contentPaneText.append(element + " ");
+            });
+        }
+    });
 }
 
 function displayHome() {
-    listOfLists.forEach((element) => (element.style.visibility = "visible"));
+    listOfListDivs.forEach((element) => (element.style.visibility = "visible"));
     headerText.innerText = "Notes";
 }
