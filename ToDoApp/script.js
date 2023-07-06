@@ -39,8 +39,10 @@ let activeList = null;
 let defaultList = new ToDoAppList();
 defaultList.addListItem("Laundry");
 defaultList.addListItem("Shopping");
+defaultList.addListItem("Third");
 defaultList.listName = "Default List";
-defaultList.isListItemComplete[1] = "T";
+//Mark item as complete
+defaultList.completeItem(0);
 listofLists.push(defaultList);
 
 //Apply Event Listeners
@@ -64,12 +66,13 @@ function clearMainContentPane() {
 }
 
 function displayActiveList() {
-    console.log();
+    let activeIndex;
     document.querySelector("header").innerText = activeList.dataset.listname;
-
     for (let i = 0; i < listofLists.length; i++) {
         if (listofLists[i].listName === activeList.dataset.listname) {
+            activeIndex = i;
             for (let j = 0; j < listofLists[i].listItems.length; j++) {
+                console.log(listofLists[i].isListItemComplete[j]);
                 let id = "item" + j;
                 contentPaneText.innerHTML +=
                     "<li> <input type = 'checkbox' id = '" +
@@ -80,6 +83,15 @@ function displayActiveList() {
                     listofLists[i].listItems[j] +
                     "</label></li>";
             }
+        }
+    }
+    checkForCompletion(listofLists[activeIndex]);
+}
+
+function checkForCompletion(list) {
+    for (let i = 0; i < list.isListItemComplete.length; i++) {
+        if (list.isListItemComplete[i] === "T") {
+            document.getElementById("item" + i).checked = true;
         }
     }
 }
