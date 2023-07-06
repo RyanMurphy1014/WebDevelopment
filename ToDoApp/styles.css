@@ -95,13 +95,8 @@ h2 {
     height: 200px;
     width: 200px;
     margin: 25px;
-}
-
-.listThumbnail>p {
     display: flex;
     justify-content: center;
-    padding-top: 15%;
-    font-weight: 400;
 }
 
 
@@ -115,4 +110,8 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+}
+
+main>ul {
+    position: absolute;
 }
