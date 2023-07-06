@@ -69,12 +69,12 @@ h2 {
     display: inline;
 }
 
-.menuBar>svg {
-    padding-left: 60%;
-}
 
 .menuBar {
     padding-bottom: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 
@@ -92,8 +92,7 @@ h2 {
 
 .listThumbnail {
     background-color: var(--accent);
-    height: 200px;
-    width: 200px;
+    aspect-ratio: 1/1;
     margin: 25px;
     display: flex;
     justify-content: center;
