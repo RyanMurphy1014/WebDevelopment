@@ -20,24 +20,20 @@ class ToDoAppList {
     this.listItems.splice(index, 1);
     this.isListItemComplete.splice(index, 1);
   }
-
-  logListItems() {
-    this.listItems.forEach((element) => {
-      console.log(element);
-    });
-  }
 }
 
 //Frequently Used Elements
-let listOfListDivs = document.querySelectorAll("main > div");
+let listOfListDivs = document.querySelectorAll("main div");
 let listofLists = [];
 
 const homeButton = document.querySelector("[data-homeButton]");
-const headerText = document.querySelector("header");
+const headerText = document.querySelector(".noteTitle");
 const mainContentPane = document.querySelector("main");
 const contentPaneText = document.querySelector("[data-contentPaneText]");
+const saveIcon = document.querySelector(".saveIcon");
 
 let activeList = null;
+let activeIndex;
 
 //Instantiate Default List
 let defaultList = new ToDoAppList();
@@ -49,9 +45,12 @@ defaultList.listName = "Default List";
 defaultList.completeItem(0);
 listofLists.push(defaultList);
 
+displayHome();
+
 //Apply Event Listeners
 listOfListDivs.forEach((element) => {
   element.addEventListener("click", () => {
+    headerText.readOnly = false;
     activeList = element;
     clearMainContentPane();
     displayActiveList();
@@ -64,6 +63,20 @@ homeButton.addEventListener("click", () => {
   displayHome();
 });
 
+saveIcon.addEventListener("click", () => {
+  listOfListDivs[activeIndex].dataset.listname = headerText.value;
+  listofLists[activeIndex].listName = headerText.value;
+  saveIcon.style.visibility = "hidden";
+});
+
+headerText.addEventListener("click", () => {
+  if (activeList === null) {
+    headerText.readOnly = true;
+  } else {
+    saveIcon.style.visibility = "visible";
+  }
+});
+
 //Functions
 function clearMainContentPane() {
   listOfListDivs.forEach((element) => (element.style.visibility = "hidden"));
@@ -71,15 +84,14 @@ function clearMainContentPane() {
 }
 
 function displayActiveList() {
-  let activeIndex;
-  document.querySelector("header").innerText = activeList.dataset.listname;
+  let title = activeList.dataset.listname;
+  headerText.value = title;
   for (let i = 0; i < listofLists.length; i++) {
     if (listofLists[i].listName === activeList.dataset.listname) {
       activeIndex = i;
       for (let j = 0; j < listofLists[i].listItems.length; j++) {
-        console.log(listofLists[i].isListItemComplete[j]);
         let id = "item" + j;
-        contentPaneText.innerHTML += "<li> <input type = 'checkbox' id = '" + id + "'> <label for=" + id + ">" + listofLists[i].listItems[j] + "</label></li>";
+        contentPaneText.innerHTML += "<li> <input type = 'checkbox' id = '" + id + "' class = 'checkBox'> <label for=" + id + ">" + listofLists[i].listItems[j] + "</label></li>";
       }
     }
   }
@@ -92,7 +104,7 @@ function displayActiveList() {
     }
   }
 
-  let checkBoxes = document.querySelectorAll("input");
+  let checkBoxes = document.querySelectorAll(".checkBox");
   for (let i = 0; i < checkBoxes.length; i++) {
     checkBoxes[i].addEventListener("change", () => {
       if (checkBoxes[i].checked === true) {
@@ -105,6 +117,15 @@ function displayActiveList() {
 }
 
 function displayHome() {
+  activeList = null;
+  activeIndex = null;
+
   listOfListDivs.forEach((element) => (element.style.visibility = "visible"));
-  headerText.innerText = "Notes";
+
+  let thumbnailText = document.querySelectorAll("div p");
+  for (let i = 0; i < listOfListDivs.length; i++) {
+    thumbnailText[i].innerHTML = listofLists[i].listName;
+  }
+
+  headerText.value = "Notes";
 }

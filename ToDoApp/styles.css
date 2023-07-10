@@ -1,10 +1,10 @@
 :root {
     --text: #1d0c07;
-    --background: #EEC8BD;
-    --primary-button: #cc6b80;
+    --background: #2b2928;
+    --primary-button: #143031;
     --secondary-button: #fefcfb;
     --lighter-secondary: #fefcfbb6;
-    --accent: #9e4777b2;
+    --accent: #32023db2;
 }
 
 * {
@@ -59,6 +59,23 @@ header {
     display: flex;
 
 }
+
+.noteTitle{
+    height: 100%;
+    font-size: 4rem;
+    width: 70%;
+    border: none;
+}
+
+.saveIcon{
+    background-color: lightblue;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 1rem;
+    visibility: hidden;
+}
+
+
 
 aside {
     background-color: var(--secondary-button);
