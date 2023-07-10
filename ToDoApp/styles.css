@@ -75,9 +75,7 @@ header {
     visibility: hidden;
 }
 
-.noteTitle:focus + .saveIcon{
-    visibility: visible;
-}
+
 
 aside {
     background-color: var(--secondary-button);
