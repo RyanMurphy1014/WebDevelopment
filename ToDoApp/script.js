@@ -33,7 +33,7 @@ let listOfListDivs = document.querySelectorAll("main > div");
 let listofLists = [];
 
 const homeButton = document.querySelector("[data-homeButton]");
-const headerText = document.querySelector("header");
+const headerText = document.querySelector(".noteTitle");
 const mainContentPane = document.querySelector("main");
 const contentPaneText = document.querySelector("[data-contentPaneText]");
 
@@ -72,14 +72,15 @@ function clearMainContentPane() {
 
 function displayActiveList() {
   let activeIndex;
-  document.querySelector("header").innerText = activeList.dataset.listname;
+  let title = activeList.dataset.listname;
+  headerText.value = title;
   for (let i = 0; i < listofLists.length; i++) {
     if (listofLists[i].listName === activeList.dataset.listname) {
       activeIndex = i;
       for (let j = 0; j < listofLists[i].listItems.length; j++) {
         console.log(listofLists[i].isListItemComplete[j]);
         let id = "item" + j;
-        contentPaneText.innerHTML += "<li> <input type = 'checkbox' id = '" + id + "'> <label for=" + id + ">" + listofLists[i].listItems[j] + "</label></li>";
+        contentPaneText.innerHTML += "<li> <input type = 'checkbox' id = '" + id + "' class = 'checkBox'> <label for=" + id + ">" + listofLists[i].listItems[j] + "</label></li>";
       }
     }
   }
@@ -92,7 +93,7 @@ function displayActiveList() {
     }
   }
 
-  let checkBoxes = document.querySelectorAll("input");
+  let checkBoxes = document.querySelectorAll(".checkBox");
   for (let i = 0; i < checkBoxes.length; i++) {
     checkBoxes[i].addEventListener("change", () => {
       if (checkBoxes[i].checked === true) {
@@ -106,5 +107,5 @@ function displayActiveList() {
 
 function displayHome() {
   listOfListDivs.forEach((element) => (element.style.visibility = "visible"));
-  headerText.innerText = "Notes";
+  headerText.value = "Notes";
 }
