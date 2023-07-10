@@ -23,7 +23,7 @@ class ToDoAppList {
 }
 
 //Frequently Used Elements
-let listOfListDivs = document.querySelectorAll("main > div");
+let listOfListDivs = document.querySelectorAll("main div");
 let listofLists = [];
 
 const homeButton = document.querySelector("[data-homeButton]");
@@ -45,9 +45,12 @@ defaultList.listName = "Default List";
 defaultList.completeItem(0);
 listofLists.push(defaultList);
 
+displayHome();
+
 //Apply Event Listeners
 listOfListDivs.forEach((element) => {
   element.addEventListener("click", () => {
+    headerText.readOnly = false;
     activeList = element;
     clearMainContentPane();
     displayActiveList();
@@ -67,7 +70,11 @@ saveIcon.addEventListener("click", () => {
 });
 
 headerText.addEventListener("click", () => {
-  saveIcon.style.visibility = "visible";
+  if (activeList === null) {
+    headerText.readOnly = true;
+  } else {
+    saveIcon.style.visibility = "visible";
+  }
 });
 
 //Functions
@@ -110,6 +117,15 @@ function displayActiveList() {
 }
 
 function displayHome() {
+  activeList = null;
+  activeIndex = null;
+
   listOfListDivs.forEach((element) => (element.style.visibility = "visible"));
+
+  let thumbnailText = document.querySelectorAll("div p");
+  for (let i = 0; i < listOfListDivs.length; i++) {
+    thumbnailText[i].innerHTML = listofLists[i].listName;
+  }
+
   headerText.value = "Notes";
 }
