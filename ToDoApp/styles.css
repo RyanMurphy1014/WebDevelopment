@@ -4,7 +4,7 @@
     --primary-button: #143031;
     --secondary-button: #fefcfb;
     --lighter-secondary: #fefcfbb6;
-    --accent: #9e4777b2;
+    --accent: #32023db2;
 }
 
 * {
@@ -58,6 +58,25 @@ header {
     align-items: center;
     display: flex;
 
+}
+
+.noteTitle{
+    height: 100%;
+    font-size: 4rem;
+    width: 50%;
+    border: none;
+}
+
+.saveIcon{
+    background-color: lightblue;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 1rem;
+    visibility: hidden;
+}
+
+.noteTitle:focus + .saveIcon{
+    visibility: visible;
 }
 
 aside {
