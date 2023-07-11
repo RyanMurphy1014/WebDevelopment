@@ -36,6 +36,7 @@ let activeList = null;
 let activeIndex;
 
 //Instantiate Default List
+headerText.disabled = true;
 let defaultList = new ToDoAppList();
 defaultList.addListItem("Laundry");
 defaultList.addListItem("Shopping");
@@ -50,6 +51,7 @@ displayHome();
 //Apply Event Listeners
 listOfListDivs.forEach((element) => {
   element.addEventListener("click", () => {
+    headerText.disabled = false;
     headerText.readOnly = false;
     activeList = element;
     clearMainContentPane();
@@ -71,10 +73,10 @@ saveIcon.addEventListener("click", () => {
 
 headerText.addEventListener("click", () => {
   if (activeList === null) {
-    headerText.readOnly = true;
-    headerText.style.userself = "none";
+    headerText.disabled = true;
   } else {
-    headerText.style.userself = "none";
+    headerText.disabled = false;
+    headerText.disabled = false;
     saveIcon.style.visibility = "visible";
   }
 });
@@ -121,6 +123,8 @@ function displayActiveList() {
 function displayHome() {
   activeList = null;
   activeIndex = null;
+
+  headerText.disabled = true;
 
   listOfListDivs.forEach((element) => (element.style.visibility = "visible"));
 
