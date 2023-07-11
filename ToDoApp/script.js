@@ -72,7 +72,9 @@ saveIcon.addEventListener("click", () => {
 headerText.addEventListener("click", () => {
   if (activeList === null) {
     headerText.readOnly = true;
+    headerText.style.userself = "none";
   } else {
+    headerText.style.userself = "none";
     saveIcon.style.visibility = "visible";
   }
 });
@@ -128,4 +130,5 @@ function displayHome() {
   }
 
   headerText.value = "Notes";
+  saveIcon.style.visibility = "hidden";
 }
