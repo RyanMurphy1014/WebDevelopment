@@ -59,14 +59,14 @@ header {
     display: flex;
 }
 
-.noteTitle{
-    height: 100%;
+.noteTitle {
+    height: 95%;
     font-size: 4rem;
     width: 70%;
     border: none;
 }
 
-.saveIcon{
+.saveIcon {
     background-color: lightblue;
     border-radius: 10px;
     padding: 5px;
@@ -132,4 +132,15 @@ main {
 
 main>ul {
     position: absolute;
+}
+
+.newListItemContainer {
+    display: flex;
+}
+
+.newListItemSaveButton {
+    visibility: hidden;
+    background-color: lightblue;
+    border-radius: 5px;
+    margin-left: 0.25rem;
 }
