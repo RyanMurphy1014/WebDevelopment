@@ -145,6 +145,15 @@ function displayActiveList() {
         newListItemSaveIcon.style.visibility = "visible";
     });
 
+    newListItemTextbox.addEventListener("keypress", (event) => {
+        if (event.keyCode === 13) {
+            newListItemSaveIcon.style.visibility = "";
+            listofLists[activeIndex].addListItem(newListItemTextbox.value);
+            clearMainContentPane();
+            displayActiveList();
+        }
+    });
+
     newListItemSaveIcon.addEventListener("click", () => {
         newListItemSaveIcon.style.visibility = "";
         listofLists[activeIndex].addListItem(newListItemTextbox.value);
