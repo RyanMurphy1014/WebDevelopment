@@ -147,6 +147,9 @@ function displayActiveList() {
 
     newListItemSaveIcon.addEventListener("click", () => {
         newListItemSaveIcon.style.visibility = "";
+        listofLists[activeIndex].addListItem(newListItemTextbox.value);
+        clearMainContentPane();
+        displayActiveList();
     });
 }
 
