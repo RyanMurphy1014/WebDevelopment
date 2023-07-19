@@ -1,71 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To-Do App</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <div class="contentContainer">
-      <header>
-        <input type="text" name="List Title" value="Notes" class="noteTitle" />
-        <svg width="65" height="65" fill="none" class="saveIcon" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
-          <path d="M17 21v-8H7v8"></path>
-          <path d="M7 3v5h8"></path>
-        </svg>
-      </header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>To-Do App</title>
+        <link rel="stylesheet" href="styles.css" />
+        <script src="script.js" defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="contentContainer">
+            <header>
+                <input
+                    type="text"
+                    name="List Title"
+                    value="Notes"
+                    class="noteTitle"
+                />
+                <svg
+                    width="65"
+                    height="65"
+                    fill="none"
+                    class="saveIcon"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"
+                    ></path>
+                    <path d="M17 21v-8H7v8"></path>
+                    <path d="M7 3v5h8"></path>
+                </svg>
+            </header>
 
-      <aside>
-        <div class="menuBar">
-          <h1>Menu</h1>
+            <aside>
+                <div class="menuBar">
+                    <h1>Menu</h1>
 
-          <svg data-homeButton width="43" height="43" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"></path>
-            <path d="M9 21a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1"></path>
-            <path d="m3 12 2-2 7-7 7 7 2 2"></path>
-          </svg>
+                    <svg
+                        data-homeButton
+                        width="43"
+                        height="43"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"
+                        ></path>
+                        <path
+                            d="M9 21a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1"
+                        ></path>
+                        <path d="m3 12 2-2 7-7 7 7 2 2"></path>
+                    </svg>
+                </div>
+
+                <h1>Tasks</h1>
+
+                <div class="tasks" data-UpcomingEvents>
+                    <svg
+                        width="43"
+                        height="43"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path d="m13 5 7 7-7 7"></path>
+                        <path d="m5 5 7 7-7 7"></path>
+                    </svg>
+                    <h2>Upcoming</h2>
+                </div>
+
+                <div class="tasks" data-TodaysEvents>
+                    <svg
+                        width="43"
+                        height="43"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path d="M4 18h16M4 6h16H4Zm0 4h16H4Zm0 4h16H4Z"></path>
+                    </svg>
+
+                    <h2>Today</h2>
+                </div>
+
+                <div class="lists">
+                    <h1 class="listHeader">Lists</h1>
+                    <ul>
+                        <li>Default List</li>
+                        <li>+ Add List</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <main>
+                <ul data-contentPaneText id="contentPaneText"></ul>
+            </main>
         </div>
-
-        <h1>Tasks</h1>
-
-        <div class="tasks" data-UpcomingEvents>
-          <svg width="43" height="43" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="m13 5 7 7-7 7"></path>
-            <path d="m5 5 7 7-7 7"></path>
-          </svg>
-          <h2>Upcoming</h2>
-        </div>
-
-        <div class="tasks" data-TodaysEvents>
-          <svg width="43" height="43" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 18h16M4 6h16H4Zm0 4h16H4Zm0 4h16H4Z"></path>
-          </svg>
-
-          <h2>Today</h2>
-        </div>
-
-        <div class="lists">
-          <h1 class="listHeader">Lists</h1>
-          <ul>
-            <li>Default List</li>
-            <li>+ Add List</li>
-          </ul>
-        </div>
-      </aside>
-
-      <main>
-        <div class="listThumbnail" data-listname="Default List">
-          <p></p>
-        </div>
-        <ul data-contentPaneText id="contentPaneText"></ul>
-      </main>
-    </div>
-  </body>
+    </body>
 </html>

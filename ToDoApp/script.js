@@ -23,7 +23,8 @@ class ToDoAppList {
 }
 
 //Frequently Used Elements
-let listOfListDivs = document.querySelectorAll("main div");
+//!!!!Don't forget to move line 27 to bottom of setup function
+let listOfListDivs;
 let listofLists = [];
 
 const homeButton = document.querySelector("[data-homeButton]");
@@ -37,15 +38,28 @@ let activeIndex;
 
 //Instantiate Default List
 headerText.disabled = true;
+
 let defaultList = new ToDoAppList();
 defaultList.addListItem("Laundry");
 defaultList.addListItem("Shopping");
 defaultList.addListItem("Cleaning");
 defaultList.listName = "Default List";
-//Mark item as complete
-defaultList.completeItem(0);
 listofLists.push(defaultList);
 
+let secondList = new ToDoAppList();
+secondList.addListItem("This is the first list item");
+listofLists.push(secondList);
+
+//Takes listOfLists and adds according div
+
+listofLists.forEach((e) => {
+    document.querySelector("main").innerHTML +=
+        "<div class='listThumbnail' data-listname='" +
+        e.listName +
+        "'><p></p></div>";
+});
+
+listOfListDivs = document.querySelectorAll("main div");
 displayHome();
 
 //Apply Event Listeners
@@ -171,6 +185,7 @@ function displayActiveList() {
 }
 
 function displayHome() {
+    console.log(listOfListDivs);
     activeList = null;
     activeIndex = null;
 
