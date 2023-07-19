@@ -59,14 +59,15 @@ header {
     display: flex;
 }
 
-.noteTitle{
-    height: 100%;
+.noteTitle {
+    height: 95%;
     font-size: 4rem;
-    width: 70%;
+    width: auto;
     border: none;
+
 }
 
-.saveIcon{
+.saveIcon {
     background-color: lightblue;
     border-radius: 10px;
     padding: 5px;
@@ -130,6 +131,24 @@ main {
     grid-template-rows: 1fr 1fr;
 }
 
+/*20 rows 2 columns */
 main>ul {
     position: absolute;
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 1px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(19, auto);
+    align-self: baseline;
+}
+
+.newListItemContainer {
+    display: flex;
+}
+
+.newListItemSaveButton {
+    visibility: hidden;
+    background-color: lightblue;
+    border-radius: 5px;
+    margin-left: 0.25rem;
 }
