@@ -62,8 +62,9 @@ header {
 .noteTitle {
     height: 95%;
     font-size: 4rem;
-    width: 70%;
+    width: auto;
     border: none;
+
 }
 
 .saveIcon {

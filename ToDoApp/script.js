@@ -80,6 +80,14 @@ headerText.addEventListener("click", () => {
     }
 });
 
+headerText.addEventListener("keypress", (event) => {
+    if (event.keyCode === 13) {
+        listOfListDivs[activeIndex].dataset.listname = headerText.value;
+        listofLists[activeIndex].listName = headerText.value;
+        saveIcon.style.visibility = "hidden";
+    }
+});
+
 //Functions
 function clearMainContentPane() {
     listOfListDivs.forEach((element) => (element.style.visibility = "hidden"));
