@@ -130,8 +130,15 @@ main {
     grid-template-rows: 1fr 1fr;
 }
 
+/*20 rows 2 columns */
 main>ul {
     position: absolute;
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 1px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(19, auto);
+    align-self: baseline;
 }
 
 .newListItemContainer {
