@@ -55,8 +55,6 @@ displayHome();
 
 //Apply Event Listeners
 listOfListDivs.forEach((element) => {
-  console.log(listOfListDivs);
-  console.log(listofLists);
   element.addEventListener("click", () => {
     headerText.disabled = false;
     headerText.readOnly = false;
@@ -97,6 +95,7 @@ headerText.addEventListener("keypress", (event) => {
 
 //Functions
 function clearMainContentPane() {
+  document.querySelector(".addList").style.visibility = "hidden";
   listOfListDivs.forEach((element) => (element.style.visibility = "hidden"));
   document.querySelector("[data-contentPaneText]").innerHTML = null;
 }
@@ -175,6 +174,7 @@ function displayHome() {
   headerText.disabled = true;
 
   listOfListDivs.forEach((element) => (element.style.visibility = "visible"));
+  document.querySelector(".addList").style.visibility = "visible";
 
   let thumbnailText = document.querySelectorAll("div p");
   for (let i = 0; i < listOfListDivs.length; i++) {
@@ -187,7 +187,9 @@ function displayHome() {
 
 function updateListHTML() {
   listofLists.forEach((element) => {
-    mainContentPane.innerHTML += "<div class='listThumbnail' data-listname='" + element.listName + "'><p></p></div>";
+    let htmlFragment = "<div class='listThumbnail' data-listname='" + element.listName + "'><p></p></div>";
+
+    mainContentPane.innerHTML = htmlFragment + mainContentPane.innerHTML;
   });
   listOfListDivs = document.querySelectorAll("main div");
 }
