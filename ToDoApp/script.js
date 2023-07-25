@@ -30,7 +30,7 @@ const homeButton = document.querySelector("[data-homeButton]");
 const headerText = document.querySelector(".noteTitle");
 const mainContentPane = document.querySelector("main");
 const contentPaneText = document.querySelector("[data-contentPaneText]");
-const saveIcon = document.querySelector(".saveIcon");
+const listTitleSaveIcon = document.querySelector(".saveIcon");
 
 let activeList = null;
 let activeIndex;
@@ -49,6 +49,7 @@ listofLists.push(defaultList);
 
 //State Variables
 let hasListOfListsChanged = false;
+let uniqueIdCounter = 0;
 
 updateListHTML();
 displayHome();
@@ -64,16 +65,34 @@ listOfListDivs.forEach((element) => {
   });
 });
 
+document.querySelector(".addList").addEventListener("click", () => {
+  let placeholderList = new ToDoAppList();
+  placeholderList.listName = "NewList" + uniqueIdCounter;
+  listofLists.push(placeholderList);
+
+  hasListOfListsChanged = true;
+  displayHome();
+  clearMainContentPane();
+
+  activeIndex = listofLists.length - 1;
+  activeList = document.querySelector("[data-listname=NewList" + uniqueIdCounter + "]");
+  uniqueIdCounter++;
+  displayActiveList();
+});
+
 homeButton.addEventListener("click", () => {
   activeList = null;
   clearMainContentPane();
   displayHome();
 });
 
-saveIcon.addEventListener("click", () => {
+listTitleSaveIcon.addEventListener("click", () => {
   listOfListDivs[activeIndex].dataset.listname = headerText.value;
   listofLists[activeIndex].listName = headerText.value;
-  saveIcon.style.visibility = "hidden";
+  listTitleSaveIcon.style.visibility = "hidden";
+  activeList = document.querySelector("[data-listname='" + headerText.value + "']");
+  clearMainContentPane();
+  displayActiveList();
 });
 
 headerText.addEventListener("click", () => {
@@ -81,7 +100,7 @@ headerText.addEventListener("click", () => {
     headerText.disabled = true;
   } else {
     headerText.disabled = false;
-    saveIcon.style.visibility = "visible";
+    listTitleSaveIcon.style.visibility = "visible";
   }
 });
 
@@ -89,7 +108,10 @@ headerText.addEventListener("keypress", (event) => {
   if (event.keyCode === 13) {
     listOfListDivs[activeIndex].dataset.listname = headerText.value;
     listofLists[activeIndex].listName = headerText.value;
-    saveIcon.style.visibility = "hidden";
+    listTitleSaveIcon.style.visibility = "hidden";
+    activeList = document.querySelector("[data-listname='" + headerText.value + "']");
+    clearMainContentPane();
+    displayActiveList();
   }
 });
 
@@ -103,6 +125,7 @@ function clearMainContentPane() {
 function displayActiveList() {
   let title = activeList.dataset.listname;
   headerText.value = title;
+  headerText.disabled = false;
   for (let i = 0; i < listofLists.length; i++) {
     if (listofLists[i].listName === activeList.dataset.listname) {
       activeIndex = i;
@@ -140,23 +163,23 @@ function displayActiveList() {
   }
 
   let newListItemTextbox = document.querySelector(".newListItemTextbox");
-  let newListItemSaveIcon = document.querySelector(".newListItemSaveButton");
+  let newListItemSaveButton = document.querySelector(".newListItemSaveButton");
 
   newListItemTextbox.addEventListener("click", () => {
-    newListItemSaveIcon.style.visibility = "visible";
+    newListItemSaveButton.style.visibility = "visible";
   });
 
   newListItemTextbox.addEventListener("keypress", (event) => {
     if (event.keyCode === 13) {
-      newListItemSaveIcon.style.visibility = "";
+      newListItemSaveButton.style.visibility = "";
       listofLists[activeIndex].addListItem(newListItemTextbox.value);
       clearMainContentPane();
       displayActiveList();
     }
   });
 
-  newListItemSaveIcon.addEventListener("click", () => {
-    newListItemSaveIcon.style.visibility = "";
+  newListItemSaveButton.addEventListener("click", () => {
+    newListItemSaveButton.style.visibility = "hidden";
     listofLists[activeIndex].addListItem(newListItemTextbox.value);
     clearMainContentPane();
     displayActiveList();
@@ -165,7 +188,7 @@ function displayActiveList() {
 
 function displayHome() {
   if (hasListOfListsChanged === true) {
-    updateListHTML();
+    updateEndofListHTML();
   }
 
   activeList = null;
@@ -182,7 +205,18 @@ function displayHome() {
   }
 
   headerText.value = "Notes";
-  saveIcon.style.visibility = "hidden";
+  listTitleSaveIcon.style.visibility = "hidden";
+  hasListOfListsChanged = false;
+
+  listOfListDivs.forEach((element) => {
+    element.addEventListener("click", () => {
+      headerText.disabled = false;
+      headerText.readOnly = false;
+      activeList = element;
+      clearMainContentPane();
+      displayActiveList();
+    });
+  });
 }
 
 function updateListHTML() {
@@ -191,5 +225,13 @@ function updateListHTML() {
 
     mainContentPane.innerHTML = htmlFragment + mainContentPane.innerHTML;
   });
+  listOfListDivs = document.querySelectorAll("main div");
+}
+
+function updateEndofListHTML() {
+  let index = listofLists.length - 1;
+  let htmlFragment = "<div class='listThumbnail' data-listname='" + listofLists[index].listName + "'><p></p></div>";
+  mainContentPane.innerHTML = htmlFragment + mainContentPane.innerHTML;
+
   listOfListDivs = document.querySelectorAll("main div");
 }
