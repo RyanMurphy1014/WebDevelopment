@@ -119,6 +119,14 @@ h2 {
 }
 
 
+.addList{
+    display: flex;
+    aspect-ratio: 1/1;
+    margin: 25px;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgray;
+}
 
 main {
     background-color: var(--secondary-button);
